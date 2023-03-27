@@ -1,0 +1,40 @@
+server:
+  port: 8484
+spring:
+  application:
+       name: api-gateway     
+    
+  cloud:
+     gateway:
+       enabled: true
+       routes:
+       - id: customer-microservice
+         uri: lb://customer-microservice
+         predicates:
+         - Path=/customer/**
+         
+       - id: employee-microservice
+         uri: lb://employee-microservice
+         predicates:
+         - Path=/employee/**  
+         
+       - id: login-service
+         uri: lb://login-service
+         predicates:
+         - Path=/gateway/** 
+      
+eureka:
+  client: 
+      register-with-eureka: true
+      service-url:
+          defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka/}
+          
+logging:
+    file:
+      name: gateway-log.log
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" 

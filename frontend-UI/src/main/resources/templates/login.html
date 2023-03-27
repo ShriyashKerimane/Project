@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<link rel="stylesheet" href="style.css">
+<style>
+@charset "ISO-8859-1";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url("/images/image4.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+div.main {
+	width: 400px;
+	margin: 100px auto 0px auto;
+}
+
+h2 {
+	text-align: center;
+	padding: 20px;
+	font-family: sans-serif;
+}
+
+div.register {
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	font-size: 18px;
+	border-radius: 10px;
+	border: 1px sod rgba(255, 255, 255, 0.3);
+	box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+	color: #fff;
+}
+
+form#register {
+	margin: 40px;
+}
+
+label {
+	font-family: sans-serif;
+	font-size: 18px;
+	font-style: italic;
+}
+
+input#name {
+	width: 300px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	outline: 0;
+	padding: 7px;
+	background-color: #fff;
+	box-shadow: Inset 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+input#submit {
+	width: 200px;
+	padding: 7px;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: 600;
+	border-radius: 3px;
+	background-color: #0984e3;
+	color: #fff;
+	cursor: pointer;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+	margin-bottom: 20px;
+}
+
+label, span, h2 {
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+</style>
+</head>
+<body>
+	<div class="main">
+		<div class="register">
+			<h2>loginPage</h2>
+			<form action="loginPage" id="register" method="get">
+				<label>User Id</label> <br> <input type="text" name="userId"
+					id="name" placeholder="Enter UserId"> <br> <br> <label>Password</label>
+				<br> <input type="password" name="password" id="name"
+					placeholder="Enter password"> <br> <br>
+				<div>
+					<label for="exampleFormControlInput3" class="form-label">Select
+						account Type</label> <select class="form-select" name="userType"
+						aria-label="Default select example">
+						<option selected>Open this select menu</option>
+						<option value="customer">customer</option>
+						<option value="employee">employee</option>
+					</select>
+				</div>
+				<h2>
+					<span th:text="${response}"></span>
+				</h2>
+				<br> <br> <input type="submit" value="Submit"
+					name="submit" id="submit">
+
+			</form>
+
+		</div>
+	</div>
+</body>
+</html>

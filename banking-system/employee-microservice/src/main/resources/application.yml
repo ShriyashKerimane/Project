@@ -1,0 +1,44 @@
+server:
+  port: 8282
+spring:
+#  datasource:
+#    driver-class-name: org.mariadb.jdbc.Driver
+#    password: root
+#    url: jdbc:mariadb://localhost:3306/accountdb
+#    username: root
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
+  application:
+       name: employee-microservice
+  mail:
+    host: smtp.gmail.com
+    username: mmb.notify.mail@gmail.com
+    password: afruhcuawwhpwbbb
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      
+eureka:
+  client: 
+      register-with-eureka: true
+      service-url:
+          defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka/}
+          
+logging:
+    file:
+      name: employee-log.log
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" 
